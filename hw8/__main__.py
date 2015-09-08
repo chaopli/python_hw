@@ -1,8 +1,5 @@
-__author__ = 'weina_guo'
-
 import matplotlib.pyplot as plt
 import numpy as np
-import numpy.ma as ma
 threshold = 5.5e9
 # The problem requires 5.5e9, which does not work with the data in PDF.
 # I used 4.0e9 instead. Uncomment the following line if properly data is used.
@@ -23,15 +20,12 @@ def read_file(input):
 
 def __main__():
     data = read_file('dow_input.txt')
-    collect = []
-    adj_close, high_vol = [], []
     data_array = []
     nrow = len(data)
     for record in data:
         data_array.append(np.fromstring(record, sep=','))
     ncol = len(data_array[0])
     data_array = np.array(data_array)
-    # print(data_array)
     print(data_array)
     mask = [[1 if data_array[i, j] > threshold else 0 for j in range(ncol)] for i in range(nrow)]
     mask = np.array(mask)
