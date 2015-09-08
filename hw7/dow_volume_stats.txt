@@ -1,2 +1,1 @@
-The dow volume has been above 4000000000 on 5 days this year.
-The high_vol_index [2, 3, 4, 7, 8].
+The dow volume has been above 5500000000 on 0 days this year.

@@ -1,7 +1,7 @@
 __author__ = 'weina_guo'
 
 import matplotlib.pyplot as plt
-threshold = 4.0e9
+threshold = 5.5e9
 # The problem requires 5.5e9, which does not work with the data in PDF.
 # I used 4.0e9 instead. Uncomment the following line if properly data is used.
 # threshold = 5.5e9
@@ -24,16 +24,16 @@ def read_file(input):
 
 
 def __main__():
-    data = read_file('dow.csv')
+    data = read_file('dow_input.txt')
     collect = []
     count = 0
     adj_close, high_vol = [], []
-    for i in range(1,len(data)):
+    for i in range(len(data)):
         record = data[i].split(',')
         adj_close.append(float(record[5]))
         if int(record[4]) > threshold:
-            print('{0:d}th record has the volume greater than {1:d}.'.format(i-1, int(threshold)))
-            collect.append(i-1)
+            print('{0:d}th record has the volume greater than {1:d}.'.format(i, int(threshold)))
+            collect.append(i)
             high_vol.append(float(record[5]))
             count += 1
 
