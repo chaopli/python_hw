@@ -23,6 +23,8 @@ def __main__():
     data_array = []
     nrow = len(data)
     for record in data:
+        print('a record:\n')
+        print(np.fromstring(record, sep=','))
         data_array.append(np.fromstring(record, sep=','))
     ncol = len(data_array[0])
     data_array = np.array(data_array)
